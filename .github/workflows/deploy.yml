@@ -1,0 +1,30 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Deploy
+        env:
+          EC2_SSH_KEY: ${{ secrets.EC2_SSH_KEY }}
+        run: |
+          echo "$EC2_SSH_KEY" > key.pem
+          chmod 600 key.pem
+          
+          ssh -i key.pem -o StrictHostKeyChecking=no ec2-user@3.87.176.0 <<EOF
+            cd /var/www/html
+            git pull origin main
+            exit
+          EOF
+          
+          rm -f key.pem
+
