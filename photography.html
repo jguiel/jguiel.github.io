@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@justin.photog</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function loadTemplate() {
+            fetch('template.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.body.innerHTML = data;
+                    // Page content
+                    const mainContent = document.getElementById('main-content');
+                    mainContent.innerHTML = `
+                        <h1 class="title">Photography<span class="cursor">█</span></h1>
+                        <p class="summary">@justin.photog on instagram.<br> Gear include Canon EOS 2000D and Canon AE-1</p>
+                        <div class="photo-grid">
+                            <a href="phtg/dolores_clouds_film.png">
+                                <img src="phtg/dolores_clouds_film.png" alt="dolores_clouds_film">
+                            </a>
+                            <a href="phtg/olympus_stairs_film.png">
+                                <img src="phtg/olympus_stairs_film.png" alt="olympus_stairs_film">
+                            </a>
+                            <a href="phtg/author_film.png">
+                                <img src="phtg/author_film.png" alt="author_film">
+                            </a>
+                            <a href="phtg/liquor_store_admin.png">
+                                <img src="phtg/liquor_store_admin.png" alt="liquor_store_admin">
+                            </a>
+                            <a href="phtg/pitcher.png">
+                                <img src="phtg/pitcher.png" alt="pitcher">
+                            </a>
+                            <a href="phtg/house_tones.png">
+                                <img src="phtg/house_tones.png" alt="house_tones">
+                            </a>
+                            <a href="phtg/statest_grid.png">
+                                <img src="phtg/statest_grid.png" alt="statest_grid">
+                            </a>
+                            <a href="phtg/st_ignacious.png">
+                                <img src="phtg/st_ignacious.png" alt="st_ignacious">
+                            </a>
+                            <a href="phtg/twins.png">
+                                <img src="phtg/twins.png" alt="twins">
+                            </a>
+                            <a href="phtg/beetle.png">
+                                <img src="phtg/beetle.png" alt="beetle">
+                            </a>
+                            <a href="phtg/sutro_film.png">
+                                <img src="phtg/sutro_film.png" alt="sutro_film">
+                            </a>
+                            <a href="phtg/sutro_olympus_film.png">
+                                <img src="phtg/sutro_olympus_film.png" alt="sutro_olympus_film">
+                            </a>
+                            <a href="phtg/tule_elk.png">
+                                <img src="phtg/tule_elk.png" alt="tule_elk">
+                            </a>
+                            <a href="phtg/ack.png">
+                                <img src="phtg/ack.png" alt="ack">
+                            </a>
+                        </div>
+                        <div class="links">
+                            <a href="https://www.tiktok.com/@bigonbiology" target="_blank">TikTok</a>
+                            <a href="https://www.instagram.com/justin.photog" target="_blank">Insta</a>
+                            <a href="https://www.linkedin.com/in/justinguiel" target="_blank">LinkedIn</a>
+                            <a href="https://github.com/jguiel" target="_blank">GitHub</a>
+                        </div>
+                    `;
+                })
+                .catch(error => console.error('Error loading template:', error));
+        }
+
+        window.onload = loadTemplate;
+    </script>
+</head>
+<body>
+</body>
+</html>

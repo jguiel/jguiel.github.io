@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>justin.ae</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function loadTemplate() {
+            fetch('template.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.body.innerHTML = data;
+                    // Page content
+                    const mainContent = document.getElementById('main-content');
+                    mainContent.innerHTML = `
+                        <h1 class="title">Justin Guiel<span class="cursor">█</span></h1>
+                        <h2 class="subhead">HPC Wizard | Prime Mover of Linux Servers | Canon gear</h2>
+                        <p class="summary">Hello, my name is Justin. I'm a hobby photographer & science communicator, professional HPC Systems Engineer. You can find me being a docent at the SF Conservatory or Flowers, SF Botanical Gardens, and SF Zoo and Gardens. I used to teach IB Biology to highschoolers, but now I make TikToks to teach people about science, genetics, plants, and animals.</p>
+                        <div class="links">
+                            <a href="https://www.tiktok.com/@bigonbiology" target="_blank">TikTok</a>
+                            <a href="https://www.instagram.com/justin.photog" target="_blank">Insta</a>
+                            <a href="https://www.linkedin.com/in/justinguiel" target="_blank">LinkedIn</a>
+                            <a href="https://github.com/jguiel" target="_blank">GitHub</a>
+                        </div>
+                    `;
+                })
+                .catch(error => console.error('Error loading template:', error));
+        }
+
+        window.onload = loadTemplate;
+    </script>
+</head>
+<body>
+</body>
+</html>
