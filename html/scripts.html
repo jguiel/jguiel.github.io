@@ -23,6 +23,11 @@
                     markdownPhotodump.src = "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fjguiel%2Fphotography_tools%2Fblob%2Fmain%2FREADME.md&style=devibeans&type=markdown&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on";
                     markdownPhotodump.async = true;
 
+                    // dot env summary
+                    const photodumpSummary = document.createElement("p");
+                    photodumpSummary.className = "summary";
+                    photodumpSummary.textContent = "Main shell script:";
+
                     // Photodump script embed
                     const photodumpEmbedScript = document.createElement("script");
                     photodumpEmbedScript.src = "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fjguiel%2Fphotography_tools%2Fblob%2Fmain%2Fphotodump.sh&style=devibeans&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on";
@@ -31,7 +36,7 @@
                     // dot env summary
                     const envSummary = document.createElement("p");
                     envSummary.className = "summary";
-                    envSummary.textContent = "Dot env file for the scripts";
+                    envSummary.textContent = "Dot env file for the scripts:";
 
                     // dot env embed
                     const envEmbedScript = document.createElement("script");
@@ -40,6 +45,7 @@
 
 
                     mainContent.appendChild(markdownPhotodump);
+                    mainContent.appendChild(photodumpSummary);
                     mainContent.appendChild(photodumpEmbedScript);
                     // mainContent.appendChild(inverttifsSummary);
                     // mainContent.appendChild(inverttifsEmbedScript);
