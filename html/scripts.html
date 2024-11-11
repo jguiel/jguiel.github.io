@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scripts</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function loadTemplate() {
+            fetch('template.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.body.innerHTML = data;
+                    const mainContent = document.getElementById('main-content');
+                    mainContent.innerHTML = `
+                        <h1 class="title">Useful Scripts<span class="cursor">█</span></h1>
+                        <h2 class="subhead">Here's where I'll share scripts I write that I find useful</h2>
+                        <p class="summary">The tools can be found in my <a href="https://github.com/jguiel/photography_tools/tree/main">photography_tools repo</a>.
+                    `;
+
+                    // Photodump summary
+                    const markdownPhotodump = document.createElement("script");
+                    markdownPhotodump.src = "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fjguiel%2Fphotography_tools%2Fblob%2Fmain%2FREADME.md&style=devibeans&type=markdown&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on";
+                    markdownPhotodump.async = true;
+
+                    // Photodump script embed
+                    const photodumpEmbedScript = document.createElement("script");
+                    photodumpEmbedScript.src = "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fjguiel%2Fphotography_tools%2Fblob%2Fmain%2Fphotodump.sh&style=devibeans&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on";
+                    photodumpEmbedScript.async = true;
+
+                    // dot env summary
+                    const envSummary = document.createElement("p");
+                    envSummary.className = "summary";
+                    envSummary.textContent = "Dot env file for the scripts";
+
+                    // dot env embed
+                    const envEmbedScript = document.createElement("script");
+                    envEmbedScript.src = "https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fjguiel%2Fphotography_tools%2Fblob%2Fmain%2F.env&style=devibeans&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on";
+                    envEmbedScript.async = true;
+
+
+                    mainContent.appendChild(markdownPhotodump);
+                    mainContent.appendChild(photodumpEmbedScript);
+                    // mainContent.appendChild(inverttifsSummary);
+                    // mainContent.appendChild(inverttifsEmbedScript);
+                    mainContent.appendChild(envSummary);
+                    mainContent.appendChild(envEmbedScript);
+
+                    const linksContainer = document.createElement("div");
+                    linksContainer.className = "links";
+                    linksContainer.innerHTML = `
+                        <a href="https://www.tiktok.com/@bigonbiology" target="_blank">TikTok</a>
+                        <a href="https://www.instagram.com/justin.photog" target="_blank">Insta</a>
+                        <a href="https://www.linkedin.com/in/justinguiel" target="_blank">LinkedIn</a>
+                        <a href="https://github.com/jguiel" target="_blank">GitHub</a>
+                    `;
+                    
+                    mainContent.appendChild(linksContainer);
+
+                })
+                .catch(error => console.error('Error loading template:', error));
+        }
+
+        window.onload = loadTemplate;
+    </script>
+</head>
+<body>
+    <div id="main-content"></div> 
+</body>
+</html>
