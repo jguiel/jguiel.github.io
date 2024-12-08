@@ -23,7 +23,8 @@ jobs:
           ssh -i key.pem -o StrictHostKeyChecking=no ec2-user@18.209.196.27 <<EOF
             cd /var/www/html
             git pull origin main
-            sudo chmod -R 666 .
+            sudo find . -type d -exec chmod 777 {} \;
+            sudo find . -type f -exec chmod 666 {} \;
             sudo chown -R apache:apache .
             exit
           EOF
